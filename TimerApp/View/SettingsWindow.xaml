@@ -1,0 +1,34 @@
+﻿<Window x:Class="TimerApp.View.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TimerApp.View"
+        mc:Ignorable="d"
+        xmlns:vm="clr-namespace:TimerApp.ViewModel"
+        xmlns:views="clr-namespace:TimerApp.View"
+        WindowStyle="ToolWindow" Height="600"
+        BorderBrush="Transparent" BorderThickness="0"
+        Title="SettingsWindow" Background="Transparent"  >
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:PlayListViewModel}">
+            <views:PlayListView/>
+        </DataTemplate>
+        <DataTemplate  DataType="{x:Type vm:PreviewViewModel}">
+            <views:PreviewView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:MessageSenderViewModel}">
+            <views:MessageSenderView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AddBaseTimerViewModel}">
+            <views:AddBaseTimerView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:PreviewSettingsViewModel}">
+            <views:PreviewSettingsView/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" 
+            Content="{Binding Path=SettingsCtr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+    </Grid>
+</Window>

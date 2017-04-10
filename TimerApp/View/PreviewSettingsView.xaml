@@ -1,0 +1,218 @@
+﻿<UserControl x:Class="TimerApp.View.PreviewSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:local="clr-namespace:TimerApp.View"
+             xmlns:helpers="clr-namespace:TimerApp.Model.Helper"
+             xmlns:set="clr-namespace:TimerApp.Model"
+            xmlns:System="clr-namespace:System;assembly=mscorlib"            
+             mc:Ignorable="d" 
+             >
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="AlertTypeEnum" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="set:PreviewAlertTypeEnum"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="LogoPositionEnum" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="set:PreviewLogoPositionEnum"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <helpers:InvertBoolConverter x:Key="invertBool"/>
+
+        <Storyboard x:Key="flashAnimation" >
+            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0" AutoReverse="True" Duration="0:0:0.5" RepeatBehavior="Forever" />
+        </Storyboard>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="false">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid Background="Transparent">
+                            <ToggleButton Grid.Column="2" Focusable="false" Foreground="White"
+                                          IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}" >
+                                <ToggleButton.Template>
+                                    <ControlTemplate>
+                                        <Grid Background="Transparent">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="5*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border x:Name="Border"  Grid.ColumnSpan="2" CornerRadius="5" Background="Transparent" BorderBrush="White" BorderThickness="1" />
+                                            <!--<Border Grid.Column="0" CornerRadius="5,0,0,5"  Margin="1"  Background="Transparent"  BorderBrush="White" BorderThickness="0,0,1,0" />-->
+                                            <Path x:Name="Arrow" Grid.Column="1"  Fill="White" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 4 4 L 0 0 L 8 0 Z"/>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="ToggleButton.IsMouseOver" Value="true">
+                                                <Setter TargetName="Border" Property="Background" Value="Gray" />
+                                            </Trigger>
+                                            <Trigger Property="ToggleButton.IsChecked" Value="true">
+                                                <Setter TargetName="Border" Property="Background" Value="DarkGray" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+                            </ToggleButton>
+                            <ContentPresenter Name="ContentSite"  IsHitTestVisible="False" TextBlock.Foreground="White"   Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Margin="3"  />
+                            <TextBox x:Name="PART_EditableTextBox" Visibility="Hidden" Foreground="White"
+                                     IsReadOnly="{TemplateBinding IsReadOnly}" Background="Transparent"/>
+                            <Popup Name="Popup" Placement="Bottom" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True"  Focusable="False" PopupAnimation="Slide">
+                                <Grid  Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border x:Name="DropDownBorder" Background="DarkGray" />
+                                    <ScrollViewer SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="/TimerApp;component/Image/tlo_ustawien_dodawaniaczasu_instalatora.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image Margin="10,0,0,0" Grid.Row="0" Source="/TimerApp;component/Image/logo_z_napisem_na_dole.png" HorizontalAlignment="Left" Width="500" Height="100"/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" >
+            
+
+            <!--KOLORY-->
+            <Grid Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5,0" UseLayoutRounding="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Label  Content="Kolor Tła" Margin="5,5"/>
+                <xctk:ColorPicker Grid.Row="0" Grid.Column="1" SelectedColor="{Binding Ds.Settings.PreviewBackgroundColor}"
+                              AvailableColorsSortingMode="HueSaturationBrightness" Margin="5,5" />
+
+                <Label Grid.Row="1" Grid.Column="0" Content="Kolor czasu" Margin="5,5"/>
+                <xctk:ColorPicker  Grid.Row="1" Grid.Column="1" SelectedColor="{ Binding Ds.Settings.PreviewTextColor}" Margin="5,5"/>
+
+                <Label Grid.Row="2" Grid.Column="0" Content="Kolor wiadomości" Margin="5,5"/>
+                <xctk:ColorPicker  Grid.Row="2" Grid.Column="1" SelectedColor="{ Binding Ds.Settings.PreviewMessageColor}" Margin="5,5"/>
+
+            </Grid>
+            <!--PLIKI-->
+
+            <Grid Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5,5" UseLayoutRounding="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Label  Grid.Row="0" Grid.Column="0" Content="Wczytaj tło" Margin="5,5"/>
+                <DockPanel Grid.Row="0" Grid.Column="1" >
+                    <Button  Command="{Binding Path=GetBgImageFileCmd}" Margin="5,5"
+                CommandParameter="BACKGROUND" Content="Wybierz plik"/>
+                    <Button Command="{Binding Path=GetBgImageFileCmd}" Content="Wyczyść" Margin="5,5"
+                CommandParameter="CLR_BG" />
+                </DockPanel >
+
+                <Label Grid.Row="1" Grid.Column="0" Content="Wczytaj logo" Margin="5,5"/>
+                <DockPanel Grid.Row="1" Grid.Column="1">
+                    <Button  Command="{Binding Path=GetBgImageFileCmd}" Margin="5,5"
+                    CommandParameter="LOGO" Content="Wybierz plik"/>
+                    <Button Command="{Binding Path=GetBgImageFileCmd}" Content="Wyczyść" Margin="5,5"
+                    CommandParameter="CLR_LOGO" />
+                </DockPanel>
+
+                <Label Grid.Row="2" Grid.Column="0" Content="Miejsce logo" Margin="5,5"/>
+                <ComboBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Source={StaticResource LogoPositionEnum}}"
+                  SelectedItem="{Binding Path=Ds.Settings.PreviewLogoPosition}" Margin="5,5"/>
+
+                <Label Grid.Row="3" Grid.Column="0" Content="Wysokość logo [%]" Margin="5,5"/>
+                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Ds.Settings.LogoHeight}" MinWidth="100" Margin="5,5"/>
+
+                <Label Grid.Row="4" Grid.Column="0" Content="Szerokość logo [%]" Margin="5,5"/>
+                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Ds.Settings.LogoWidth}" MinWidth="100" Margin="5,5"/>
+
+
+            </Grid>
+
+            <Grid Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+
+                <Label Grid.Row="0" Grid.Column="0" Content="Rozmiar czcionki czasu" Margin="5,5"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Ds.Settings.PreviewTimeFontSize}" MinWidth="100" Margin="5,5"/>
+
+                <Label Grid.Row="1" Grid.Column="0" Content="Max czcionka tekstu" Margin="5,5"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Ds.Settings.PreviewMessageFontSize}" MinWidth="100" Margin="5,5"/>
+
+                <Label Grid.Row="2" Grid.Column="0" Content="Rodzaj alarmu" Margin="5,5"/>
+                <ComboBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Source={StaticResource AlertTypeEnum}}"
+                  SelectedItem="{Binding Path=Ds.Settings.PreviewAlertType}" Margin="5,5" Background="Transparent">
+
+                </ComboBox>
+
+                <Label Grid.Row="3" Grid.Column="0" Content="Czas uruchomienia alarmu [s]" Margin="5,5"/>
+                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Ds.Settings.PreviewAlertTime}" MinWidth="100" Margin="5,5"/>
+
+                <Label  Grid.Row="4" Grid.Column="0" Content="Obrazek alertu" Margin="5,5"/>
+                <DockPanel Grid.Row="4" Grid.Column="1" >
+
+                    <Button  Command="{Binding Path=GetBgImageFileCmd}" Margin="5,5"
+                CommandParameter="ALERT" Content="Wybierz plik"/>
+                    <Button Command="{Binding Path=GetBgImageFileCmd}" Content="Wyczyść"
+                CommandParameter="CLR_ALERT" Margin="5,5"/>
+                </DockPanel>
+            </Grid>
+            <Button Grid.Row="10" Grid.Column="0" Content="Zapisz" Command="{Binding PreviewSettingsCmd}" Margin="5,5"
+                CommandParameter="{Binding NewBt}"/>
+            <Button Grid.Row="10" Grid.Column="1" Content="Anuluj" Command="{Binding PreviewSettingsCmd}" Margin="5,5"
+                CommandParameter="CANCEL"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

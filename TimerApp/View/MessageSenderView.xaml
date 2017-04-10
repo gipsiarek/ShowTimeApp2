@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="TimerApp.View.MessageSenderView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TimerApp.View"
+             mc:Ignorable="d"  Opacity="0.8">
+   
+    <Grid Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" >
+            <DockPanel HorizontalAlignment="Stretch"  >
+                <DockPanel.Background>
+                    <ImageBrush ImageSource="/TimerApp;component/Image/pasek_wiadomosc.png"/>
+                </DockPanel.Background>
+               
+                <Button HorizontalAlignment="Right" Background="Transparent" Foreground="White" DockPanel.Dock="Right"
+                        Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="150"  FontSize="18"
+                        Command="{Binding SendMessageCmd}" CommandParameter=" ">
+                    <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="110">
+                        <Image Source="/TimerApp;component/Image/ikona_wyczysc.png" DockPanel.Dock="Right"/>
+                        <TextBlock Text="Wyczyść" DockPanel.Dock="Right"/>
+                    </DockPanel>
+                </Button>
+                <Button HorizontalAlignment="Right" Background="Transparent" Foreground="White" DockPanel.Dock="Right"
+                        Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="150"  FontSize="18"
+                        Command="{Binding SendMessageCmd}" CommandParameter="{Binding Message}">
+                    <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="110">
+                        <Image Source="/TimerApp;component/Image/ikona_wyslij.png" DockPanel.Dock="Right"/>
+                        <TextBlock Text="Wyślij" DockPanel.Dock="Right"/>
+                        
+                    </DockPanel>
+                </Button>
+            </DockPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <TextBox VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextWrapping="Wrap"  AcceptsReturn="True"
+                         Text="{Binding Message, UpdateSourceTrigger=PropertyChanged}" FontSize="30" >
+                <!--<TextBox.InputBindings>
+                        -->
+                <!--<KeyBinding Command="{Binding Path=SendMessageCmd}" CommandParameter="{Binding Path=Message}" Key="Enter" />-->
+                <!--<KeyBinding Command="{Binding Path=SendMessageCmd}" CommandParameter="{Binding Path=Message}" Key="Return" />-->
+                <!--
+                    </TextBox.InputBindings>-->
+            </TextBox>
+        </Grid>
+    </Grid>
+</UserControl>

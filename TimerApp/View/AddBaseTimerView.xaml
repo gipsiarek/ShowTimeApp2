@@ -1,0 +1,156 @@
+﻿<UserControl x:Class="TimerApp.View.AddBaseTimerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TimerApp.View"
+             mc:Ignorable="d"
+             Width="400" Height="400">
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="/TimerApp;component/Image/tlo_ustawien_dodawaniaczasu_instalatora.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image Margin="10,10,0,0" Grid.Row="0" Source="/TimerApp;component/Image/logo_z_napisem_na_dole.png" HorizontalAlignment="Left" Width="200" Height="100"/>
+        <Grid  Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,5">
+            <Grid.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+                <!--<Style TargetType="{x:Type Button}">
+                    <Style.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="#FFADADAD"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>-->
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Nazwa"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding NewBt.Name}" MinWidth="150" Margin="5,5"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Czas [s]"/>
+            <!--<TextBox Grid.Row="1" Grid.Column="1" Text="{Binding NewBt.Duration}" MinWidth="100" Margin="5,5"/>-->
+            <DockPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"  Margin="5,5">
+                <TextBox x:Name="Hours" Text="{Binding Path=DurationHours}" MinWidth="48" />
+                <TextBlock Text=":"/>
+                <TextBox x:Name="Minutes" Text="{Binding Path=DurationMinutes}" MinWidth="50"/>
+                <TextBlock Text=":"/>
+                <TextBox x:Name="Seconds" Text="{Binding Path=DurationSeconds}" MinWidth="48"/>
+            </DockPanel>
+            <Label Grid.Row="2" Grid.Column="0" Content="Uwagi"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding NewBt.Comments}" MinWidth="100" Margin="5,5"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Odliczanie do 0" VerticalAlignment="Center"/>
+            <!--<CheckBox Grid.Row="3" Grid.Column="1" IsChecked="{Binding NewBt.IsTimerDescending}" Margin="5,5" 
+                      HorizontalAlignment="Left" VerticalAlignment="Center"></CheckBox>-->
+            <Button BorderThickness="0" Grid.Row="3" Grid.Column="1" Command="{Binding DownToZeroCmd}" 
+                                    Margin="0"   Width="45" Height="45" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="0">
+                                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                            Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=NewBt.IsTimerDescending}" Value="True">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <ImageBrush ImageSource="/TimerApp;component/Image/zielony_znaczek.png" Stretch="Uniform"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding NewBt.IsTimerDescending}" Value="False">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <ImageBrush ImageSource="/TimerApp;component/Image/pusty_znaczek.png" Stretch="Uniform"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+
+            <Label Grid.Row="4" Grid.Column="0" Content="Czy uruchamiać alarm" VerticalAlignment="Center"/>
+            <!--<CheckBox Grid.Row="4" Grid.Column="1" IsChecked="{Binding NewBt.ShouldAlertFire}" Margin="5,5" HorizontalAlignment="Left" VerticalAlignment="Center"/>-->
+            <Button BorderThickness="0" Grid.Row="4" Grid.Column="1" Command="{Binding FireAlertCmd}" CommandParameter="{Binding NewBt.ShouldFireAlert}"
+                                    Margin="0"   Width="45" Height="45" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="0">
+                                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                            Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=NewBt.ShouldAlertFire}" Value="True">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <ImageBrush ImageSource="/TimerApp;component/Image/zielony_znaczek.png" Stretch="Uniform"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding NewBt.ShouldAlertFire}" Value="False">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <ImageBrush ImageSource="/TimerApp;component/Image/pusty_znaczek.png" Stretch="Uniform"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button Grid.Row="5" Grid.Column="0" Content="Zapisz" Command="{Binding AddNewPlayListItemCmd}" 
+                CommandParameter="{Binding NewBt}" Margin="5,5"/>
+            <Button Grid.Row="5" Grid.Column="1" Content="Anuluj" Command="{Binding AddNewPlayListItemCmd}" 
+                CommandParameter="CANCEL" Margin="5,5"/>
+        </Grid>
+    </Grid>
+
+</UserControl>

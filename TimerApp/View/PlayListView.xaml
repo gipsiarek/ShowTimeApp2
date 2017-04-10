@@ -1,0 +1,338 @@
+﻿<UserControl x:Class="TimerApp.View.PlayListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TimerApp.View"
+             xmlns:Converter="clr-namespace:TimerApp.Model.Helper"
+             
+             mc:Ignorable="d" Opacity="0.9"
+             >
+
+    <UserControl.Resources>
+        <Converter:IndexConverter x:Key="IndexConverter" />
+        <VisualBrush x:Key="selectionBg">
+            <VisualBrush.Visual>
+                <Grid>
+                    <Image Stretch="Fill" Source="/TimerApp;component/Image/zaznzaczenie.png"/>
+                </Grid>
+            </VisualBrush.Visual>
+        </VisualBrush>
+    </UserControl.Resources>
+
+    <Grid Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0" HorizontalAlignment="Stretch"   Opacity="1" OpacityMask="#FF5DF03C">
+            <DockPanel.Background>
+                <ImageBrush ImageSource="/TimerApp;component/Image/pasek_lista_czasow.png"/>
+            </DockPanel.Background>
+            <!--Background="#FF58F358"-->
+            <!--<Label Content="LISTA CZASÓW" HorizontalAlignment="Left" FontSize="20" Foreground="White" VerticalAlignment="Center"/>-->
+            <Button HorizontalAlignment="Right" Foreground="White" VerticalAlignment="Center" DockPanel.Dock="Right"
+                        Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="200"  FontSize="18"
+                        Command="{Binding AddNewPlayListItemViewCmd}" Background="Transparent">
+                <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="110">
+                    <TextBlock Text="+" HorizontalAlignment="Left"/>
+                    <TextBlock Text="Dodaj czas" HorizontalAlignment="Right"/>
+                </DockPanel>
+            </Button>
+            <Button HorizontalAlignment="Right"  Foreground="White" VerticalAlignment="Center" DockPanel.Dock="Right"
+                        Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="200"  FontSize="18"
+                        Command="{Binding UploadConfigCmd}" Background="Transparent">
+                    <TextBlock Text="Synchronizuj ustawienia" HorizontalAlignment="Center"/>
+            </Button>
+        </DockPanel>
+        <Grid Grid.Row="1" Opacity="0.8">
+            <DataGrid ItemsSource="{Binding Path=Ds.TimesCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"                     
+                      SelectedItem="{Binding Path=SelectedTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      AutoGenerateColumns="False" Margin="0" CanUserAddRows="False" CanUserDeleteRows="False" Foreground="White"
+                      FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                      CanUserSortColumns="False"  GridLinesVisibility="Horizontal" Background="Transparent"
+                       SelectionMode="Single" SelectionUnit="FullRow" RowHeaderWidth="0" BorderThickness="0"  >
+                <DataGrid.Resources>
+                    <ImageBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" ImageSource="/TimerApp;component/Image/zaznzaczenie.png" />
+                    <ImageBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" ImageSource="/TimerApp;component/Image/zaznzaczenie.png" />
+                    <!--<Style TargetType="DataGridCell">
+                        <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                        
+                    </Style>-->
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                    <Style TargetType="{x:Type DataGridRow}">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Style.Triggers>
+                            <DataTrigger  Binding="{Binding State}" Value="Started">
+                                <Setter Property="Background" Value="{StaticResource selectionBg}"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+
+                </DataGrid.Resources>
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header="Lp." IsReadOnly="True" Binding="{Binding RelativeSource={RelativeSource FindAncestor,
+                                            AncestorType={x:Type DataGridRow}}, Converter={StaticResource IndexConverter}}" 
+                                         >
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="Margin" Value="5,0,0,0"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTemplateColumn Header="Akcja"  IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate >
+                                <Button BorderThickness="0"
+                                    Command="{Binding Path=DataContext.StartPauseCmd, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" 
+                                    CommandParameter="{Binding Path=SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}"
+                                     Margin="0"  Width="45" Height="45" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="0">
+                                                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                            Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Foreground" Value="Blue" />
+                                                                <Setter Property="Cursor" Value="Hand" />
+                                                                <Setter Property="Opacity" Value="0.5"/>
+                                                                <!--If we don't tell the background to change on hover, it will remain the same-->
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding State}" Value="Paused">
+                                                    <Setter Property="Background">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="/TimerApp;component/Image/play.png" Stretch="Uniform"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding State}" Value="Stoped">
+                                                    <Setter Property="Background">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="/TimerApp;component/Image/play.png" Stretch="Uniform"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding State}" Value="Started">
+                                                    <Setter Property="Background">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="/TimerApp;component/Image/pauza.png" Stretch="Uniform"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=Name}" IsReadOnly="True" Width="*" >
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="Margin" Value="5,0,0,0"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Czas" IsReadOnly="True" Binding="{Binding Path=DurationDisplay}"  >
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="Margin" Value="5,0,0,0"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+                    <DataGridTemplateColumn Header="do 0" IsReadOnly="True"   >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate >
+                                <Button BorderThickness="0"
+                                    Margin="0"  Width="45" Height="45" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="IsEnabled" Value="False"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="0">
+                                                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                            Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Path=IsTimerDescending}" Value="True">
+                                                    <Setter Property="Background">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="/TimerApp;component/Image/zielony_znaczek.png" Stretch="Uniform"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding IsTimerDescending}" Value="False">
+                                                    <Setter Property="Background">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="/TimerApp;component/Image/pusty_znaczek.png" Stretch="Uniform"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Alarm" IsReadOnly="True"   >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate >
+                                <Button BorderThickness="0"
+                                    Margin="0"  Width="45" Height="45" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="IsEnabled" Value="False"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="0">
+                                                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                            Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
+                                                        </Border>
+                                                        <!--<ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Foreground" Value="Blue" />
+                                                                <Setter Property="Cursor" Value="Hand" />
+                                                                <Setter Property="Opacity" Value="0.5"/>
+                                                                --><!--If we don't tell the background to change on hover, it will remain the same--><!--
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>-->
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Path=ShouldAlertFire}" Value="True">
+                                                    <Setter Property="Background">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="/TimerApp;component/Image/zielony_znaczek.png" Stretch="Uniform"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding ShouldAlertFire}" Value="False">
+                                                    <Setter Property="Background">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="/TimerApp;component/Image/pusty_znaczek.png" Stretch="Uniform"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <!--<DataGridCheckBoxColumn Header="Alarm" IsReadOnly="True"  Binding="{Binding Path=ShouldAlertFire}" >
+                        <DataGridCheckBoxColumn.ElementStyle>
+                            <Style TargetType="CheckBox">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="IsEnabled" Value="False"/>
+                                <Setter Property="Margin" Value="0"/>
+                            </Style>
+                        </DataGridCheckBoxColumn.ElementStyle>
+                    </DataGridCheckBoxColumn>-->
+                    <DataGridTextColumn Header="Uwagi" Binding="{Binding Path=Comments}" IsReadOnly="True" Width="*" >
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="Margin" Value="5,0,0,0"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTemplateColumn >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button 
+                                    Command="{Binding Path=DataContext.StopCmd, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" 
+                                    CommandParameter="{Binding Path=SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}"
+                                    Margin="0"  Width="45" Height="45" BorderBrush="Transparent" BorderThickness="0"
+                                    VerticalAlignment="Center" HorizontalAlignment="Center" >
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="/TimerApp;component/Image/stop.png" Stretch="Uniform"/>
+                                    </Button.Background>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn >
+                        <DataGridTemplateColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <Button  Command="{Binding DataContext.RowMovementCmd, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="UP" Margin="0"
+                                    Foreground="White" Background="Transparent" BorderThickness="1" BorderBrush="White" >
+                                    <Button.Content>
+                                        <Path x:Name="Arrow" Grid.Column="1"  Fill="White" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 0 8 L 8 0 L 16 8 Z"/>
+                                    </Button.Content>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.HeaderTemplate>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button  Command="{Binding Path=DataContext.EditRowCmd, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" 
+                                    CommandParameter="{Binding Path=SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}"
+                                    Margin="0"  Width="45" Height="45" BorderBrush="Transparent" BorderThickness="0"
+                                         VerticalAlignment="Center" HorizontalAlignment="Center" >
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="/TimerApp;component/Image/olowek.png" Stretch="Uniform"/>
+                                    </Button.Background>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn >
+                        <DataGridTemplateColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <Button   Command="{Binding DataContext.RowMovementCmd, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="DOWN" Margin="0"
+                                    Foreground="White" Background="Transparent" BorderThickness="1" BorderBrush="White" >
+                                    <Button.Content>
+                                        <Path x:Name="Arrow" Grid.Column="1"  Fill="White" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 0 0 L 8 8 L 16 0 Z"/>
+                                    </Button.Content>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.HeaderTemplate>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Command="{Binding Path=DataContext.DeleteRowCmd, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" 
+                                    CommandParameter="{Binding Path=SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}"
+                                    Margin="0"  Width="45" Height="45" BorderBrush="Transparent" BorderThickness="0"
+                                        VerticalAlignment="Center" HorizontalAlignment="Center" >
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="/TimerApp;component/Image/kosz.png" Stretch="Uniform"/>
+                                    </Button.Background>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+                    
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>
