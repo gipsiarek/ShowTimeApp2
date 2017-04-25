@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Windows;
 using TimerApp.View;
@@ -30,6 +32,17 @@ namespace TimerApp
             };
             app.Show();
 
+
+            //WebClient wc = new WebClient();
+            //Stream st = wc.OpenRead("http://185.15.44.87/jmjtest/ShowTimeAuth.zip");
+            //StreamReader sr = new StreamReader(st);
+            //var tmp = sr.ReadLine();
+            ////if(x.StartsWith("DATA"))
+            //long x = DateTime.Now.Ticks;
+            //var xx = Convert.ToBase64String(BitConverter.GetBytes(x));
+
+            //var xx2 = Convert.FromBase64String(xx);
+            //var x2= BitConverter.ToInt64(xx2, 0);
         }
         
         protected override void OnExit(ExitEventArgs e)

@@ -21,7 +21,7 @@
         <VisualBrush x:Key="myLogo">
             <VisualBrush.Visual>
                 <Grid>
-                    <Image Source="{Binding Path=Ds.Settings.LogoPreviewFile}" Stretch="Uniform"/>
+                    <Image Source="{Binding Path=Ds.Settings.LogoPreviewFile}" Stretch="UniformToFill"/>
                 </Grid>
             </VisualBrush.Visual>
         </VisualBrush>
@@ -115,8 +115,10 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="{Binding Path=Ds.Settings.LogoGridColumn}" Grid.Row="{Binding Path=Ds.Settings.LogoGridRow}"
                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
-                    <Viewbox Stretch="Uniform" >
-                        <Image Source="{Binding Path=Ds.Settings.LogoPreviewFile}" />
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="{Binding Path=Ds.Settings.LogoHorizontal, UpdateSourceTrigger=PropertyChanged}" 
+                             VerticalAlignment="{Binding Path=Ds.Settings.LogoVertical, UpdateSourceTrigger=PropertyChanged}">
+                        <Image Source="{Binding Path=Ds.Settings.LogoPreviewFile}" HorizontalAlignment="{Binding Path=Ds.Settings.LogoHorizontal}"
+                               VerticalAlignment="{Binding Path=Ds.Settings.LogoVertical}"/>
                     </Viewbox>
                 </Grid>
                 <!--<Viewbox StretchDirection="DownOnly" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 

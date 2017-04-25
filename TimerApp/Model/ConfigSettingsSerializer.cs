@@ -14,16 +14,24 @@ namespace TimerApp.Model
     {
         ObservableCollection<TimerRow> playlist;
         SettingsClass settings;
+        string fileName;
 
         public ConfigSettingsSerializer()
-        {
+        {         
             this.settings = new SettingsClass();
             this.playlist = new ObservableCollection<TimerRow>();
+            if(string.IsNullOrEmpty(fileName))
+                fileName = "ConfigSetings.e4e";
         }
-        public ConfigSettingsSerializer(ObservableCollection<TimerRow> time, SettingsClass settings)
+        public ConfigSettingsSerializer(string fileName = "ConfigSetings.e4e") : base()
+        {
+            this.fileName = fileName;
+        }
+        public ConfigSettingsSerializer(ObservableCollection<TimerRow> time, SettingsClass settings, string fileName = "ConfigSetings.e4e")
         {
             this.settings = settings;
             this.playlist = time;
+            this.fileName = fileName;
         }
         public ObservableCollection<TimerRow> PlayList
         {
@@ -52,7 +60,7 @@ namespace TimerApp.Model
 
         public void SaveConfigFile()
         {
-            using (Stream stream = File.Open("ConfigSetings.e4e", FileMode.Create))
+            using (Stream stream = File.Open(fileName, FileMode.Create))
             {
                 //BinaryFormatter bin = new BinaryFormatter();
                 XmlSerializer bin = new XmlSerializer(typeof(ConfigSettingsSerializer));
@@ -65,7 +73,7 @@ namespace TimerApp.Model
         {
             try
             {
-                using (Stream stream = File.Open("ConfigSetings.e4e", FileMode.Open))
+                using (Stream stream = File.Open(fileName, FileMode.Open))
                 {
                     XmlSerializer bin = new XmlSerializer(typeof(ConfigSettingsSerializer));
                     var tmp = (ConfigSettingsSerializer)bin.Deserialize(stream);

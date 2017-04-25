@@ -59,7 +59,7 @@
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="Nazwa"/>
             <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding NewBt.Name}" MinWidth="150" Margin="5,5"/>
-            <Label Grid.Row="1" Grid.Column="0" Content="Czas [s]"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Czas [HH:MM:ss]"/>
             <!--<TextBox Grid.Row="1" Grid.Column="1" Text="{Binding NewBt.Duration}" MinWidth="100" Margin="5,5"/>-->
             <DockPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"  Margin="5,5">
                 <TextBox x:Name="Hours" Text="{Binding Path=DurationHours}" MinWidth="48" />

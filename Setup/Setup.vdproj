@@ -21,6 +21,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_1E9A2B849154FD1DCE2045ECF69FD99F"
+        "OwnerKey" = "8:_5AC39EF56D3D4C96A027F2C39FED0A42"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5A7A840CFFB042B485C6C8723C723F61"
+        "OwnerKey" = "8:_5AC39EF56D3D4C96A027F2C39FED0A42"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_5AC39EF56D3D4C96A027F2C39FED0A42"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -33,20 +45,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_70CE3C118F8AB29C803904CC03016771"
-        "OwnerKey" = "8:_5AC39EF56D3D4C96A027F2C39FED0A42"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_757FA206402B4E36BE35F5346B49E5C4"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9BC799404C358CFA765FEA93B77F19D0"
-        "OwnerKey" = "8:_5AC39EF56D3D4C96A027F2C39FED0A42"
+        "MsmKey" = "8:_78D77C2701754043ACBC2C47C586EEFA"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -64,13 +70,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_70CE3C118F8AB29C803904CC03016771"
+        "OwnerKey" = "8:_1E9A2B849154FD1DCE2045ECF69FD99F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9BC799404C358CFA765FEA93B77F19D0"
+        "OwnerKey" = "8:_5A7A840CFFB042B485C6C8723C723F61"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -176,7 +182,7 @@
             "Folder" = "8:_E38E637229EE48BBB9AB6B0694E0DE10"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
+            "Vital" = "11:FALSE"
             "ReadOnly" = "11:FALSE"
             "Hidden" = "11:FALSE"
             "System" = "11:FALSE"
@@ -188,20 +194,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6AE57F5001053DB8FB3A875295158F85"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1E9A2B849154FD1DCE2045ECF69FD99F"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            "AssemblyAsmDisplayName" = "8:InstallManager, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_6AE57F5001053DB8FB3A875295158F85"
+                    "_1E9A2B849154FD1DCE2045ECF69FD99F"
                     {
-                    "Name" = "8:System.Net.Http.dll"
+                    "Name" = "8:InstallManager.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:System.Net.Http.dll"
+            "SourcePath" = "8:InstallManager.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BEF9CA994DB245139E3D5A05E4FE7ACC"
@@ -219,20 +225,51 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_70CE3C118F8AB29C803904CC03016771"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5A7A840CFFB042B485C6C8723C723F61"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:InstallManager, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Xceed.Wpf.Toolkit, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_70CE3C118F8AB29C803904CC03016771"
+                    "_5A7A840CFFB042B485C6C8723C723F61"
                     {
-                    "Name" = "8:InstallManager.dll"
+                    "Name" = "8:Xceed.Wpf.Toolkit.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:InstallManager.dll"
+            "SourcePath" = "8:Xceed.Wpf.Toolkit.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_BEF9CA994DB245139E3D5A05E4FE7ACC"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6AE57F5001053DB8FB3A875295158F85"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+                "ScatterAssemblies"
+                {
+                    "_6AE57F5001053DB8FB3A875295158F85"
+                    {
+                    "Name" = "8:System.Net.Http.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BEF9CA994DB245139E3D5A05E4FE7ACC"
@@ -270,23 +307,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9BC799404C358CFA765FEA93B77F19D0"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_78D77C2701754043ACBC2C47C586EEFA"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Xceed.Wpf.Toolkit, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_9BC799404C358CFA765FEA93B77F19D0"
-                    {
-                    "Name" = "8:Xceed.Wpf.Toolkit.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Xceed.Wpf.Toolkit.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\TimerApp\\Image\\logo_z_napisem_z_boku.png"
+            "TargetName" = "8:logo_z_napisem_z_boku.png"
             "Tag" = "8:"
-            "Folder" = "8:_BEF9CA994DB245139E3D5A05E4FE7ACC"
+            "Folder" = "8:_E38E637229EE48BBB9AB6B0694E0DE10"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -298,7 +324,7 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }
@@ -392,7 +418,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:ShowTimeApp"
         "ProductCode" = "8:{8E364E78-6286-4A29-94C6-C03F676D5C32}"
-        "PackageCode" = "8:{951B8FE7-5CC1-4CB5-8DDE-64B38D9C622D}"
+        "PackageCode" = "8:{ED9B27DC-136A-453A-948B-6081F7631254}"
         "UpgradeCode" = "8:{AB70C535-3DE3-4AFB-A794-7568F7B5A2F9}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -400,7 +426,7 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:gipsiarek CO"
+        "Manufacturer" = "8:New Systems"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:ShowTimeApp"
@@ -409,7 +435,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_757FA206402B4E36BE35F5346B49E5C4"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"

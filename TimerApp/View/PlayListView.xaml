@@ -40,9 +40,14 @@
                 </DockPanel>
             </Button>
             <Button HorizontalAlignment="Right"  Foreground="White" VerticalAlignment="Center" DockPanel.Dock="Right"
-                        Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="200"  FontSize="18"
+                        Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="170" Height="28" FontSize="16"
                         Command="{Binding UploadConfigCmd}" Background="Transparent">
                     <TextBlock Text="Synchronizuj ustawienia" HorizontalAlignment="Center"/>
+            </Button>
+            <Button HorizontalAlignment="Right"  Foreground="White" VerticalAlignment="Center" DockPanel.Dock="Right"
+                        Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="110"  FontSize="18"
+                        Command="{Binding LoadConfigCmd}" Background="Transparent">
+                <TextBlock Text="Wczytaj plik" HorizontalAlignment="Center"/>
             </Button>
         </DockPanel>
         <Grid Grid.Row="1" Opacity="0.8">

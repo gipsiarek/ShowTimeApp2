@@ -81,7 +81,7 @@ namespace TimerApp.ViewModel
             {
                 durationHours = value;
                 OnPropertyChanged(() => DurationHours);
-                NewBt.Duration = DurationHours * 3600 + DurationMinutes * 60 + DurationSeconds;
+                NewBt.RemainingSeconds=NewBt.Duration = DurationHours * 3600 + DurationMinutes * 60 + DurationSeconds;
             }
         }
 
@@ -93,7 +93,7 @@ namespace TimerApp.ViewModel
             {
                 durationMinutes = value;
                 OnPropertyChanged(() => DurationMinutes);
-                NewBt.Duration = DurationHours * 3600 + DurationMinutes * 60 + DurationSeconds;
+                NewBt.RemainingSeconds = NewBt.Duration = DurationHours * 3600 + DurationMinutes * 60 + DurationSeconds;
             }
         }
 
@@ -106,7 +106,7 @@ namespace TimerApp.ViewModel
             {
                 durationSeconds = value;
                 OnPropertyChanged(() => DurationSeconds);
-                NewBt.Duration = DurationHours * 3600 + DurationMinutes * 60 + DurationSeconds;
+                NewBt.RemainingSeconds = NewBt.Duration = DurationHours * 3600 + DurationMinutes * 60 + DurationSeconds;
             }
         }
 

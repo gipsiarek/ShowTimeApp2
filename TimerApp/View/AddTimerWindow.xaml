@@ -7,7 +7,7 @@
           xmlns:vm="clr-namespace:TimerApp.ViewModel"
         xmlns:views="clr-namespace:TimerApp.View"
         mc:Ignorable="d"        WindowStyle="ToolWindow" 
-        BorderBrush="Transparent" BorderThickness="0"
+        BorderBrush="Transparent" BorderThickness="0" 
         Title="AddTimerWindow">
     <Window.Resources>
         <DataTemplate DataType="{x:Type vm:PlayListViewModel}">

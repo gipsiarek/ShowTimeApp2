@@ -131,6 +131,8 @@ namespace TimerApp.Model
                 OnPropertyChanged(() => ColspanForMessage);
                 OnPropertyChanged(() => NonLogoSite);
                 OnPropertyChanged(() => NonLogoColumn);
+                OnPropertyChanged(() => LogoHorizontal);
+                OnPropertyChanged(() => LogoVertical);
             }
         }
 
@@ -231,8 +233,10 @@ namespace TimerApp.Model
             }
         }
         public int NonLogoColumn { get { return LogoGridColumn == 1 ? 0 : 1; } }
-        public string NonLogoSite { get { return LogoGridColumn == 1 ? "Left" : "Rigth"; } }
-        
+        public string NonLogoSite { get { return LogoGridColumn == 1 ? "Left" : "Right"; } }
+        public string LogoHorizontal { get { return LogoGridColumn == 0 ? "Left" : "Right"; } }
+        public string LogoVertical  { get { return LogoGridRow == 0 ? "Top" : "Bottom"; } }
+
         public int LogoGridRow
         {
             get

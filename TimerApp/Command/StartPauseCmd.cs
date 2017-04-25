@@ -50,7 +50,8 @@ namespace TimerApp.Command
                         }
                         else if (ds.Timer.TimerRow == bt)
                         {
-                            if (bt.State == ActionEnum.Stoped) ds.Timer = new BaseTimer(bt);
+                            if (bt.State == ActionEnum.Stoped)
+                                ds.Timer = new BaseTimer(bt);
                             bt.State = changeBtState(bt.State);
                             if (bt.State == ActionEnum.Started)
                                 ds.Timer.Start();

@@ -139,6 +139,7 @@
     <Compile Include="Command\DownToZeroCmd.cs" />
     <Compile Include="Command\FireAlertCmd.cs" />
     <Compile Include="Command\GetBgImageFileCmd.cs" />
+    <Compile Include="Command\LoadConfigCmd.cs" />
     <Compile Include="Command\PreviewSettingsCmd.cs" />
     <Compile Include="Command\AddNewPlayListItemCmd.cs" />
     <Compile Include="Command\AddNewPlayListItemViewCmd.cs" />
@@ -155,6 +156,7 @@
     <Compile Include="Model\ConfigSettingsSerializer.cs" />
     <Compile Include="Model\DataSet.cs" />
     <Compile Include="Model\Helper\ActionEnumConverter.cs" />
+    <Compile Include="Model\Helper\Crypt.cs" />
     <Compile Include="Model\Helper\MoveWindow.cs" />
     <Compile Include="Model\Helper\VerticalPosConverter.cs" />
     <Compile Include="Model\Helper\HorizontalPosConverter.cs" />

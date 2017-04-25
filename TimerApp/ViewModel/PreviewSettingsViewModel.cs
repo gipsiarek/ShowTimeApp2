@@ -22,7 +22,11 @@ namespace TimerApp.ViewModel
         string alertFile;
         public string LogoFile
         {
-            get { return logoFile; }
+            get
+            {
+                return string.IsNullOrEmpty(ds?.Settings?.LogoPreviewFile) ?
+                      "Wybierz plik" : ds?.Settings?.LogoPreviewFile.Split('\\')[ds.Settings.LogoPreviewFile.Count(x => x == '\\')];
+            }
             set
             {
                 logoFile = value;
@@ -31,13 +35,31 @@ namespace TimerApp.ViewModel
         }
         public string BgFile
         {
-            get { return bgFile; }
+            get
+            {
+                return string.IsNullOrEmpty(ds?.Settings?.BackgroundPreviewFile) ?
+                    "Wybierz plik" : ds?.Settings?.BackgroundPreviewFile.Split('\\')[ds.Settings.BackgroundPreviewFile.Count(x => x == '\\')];
+            }
             set
             {
                 bgFile = value;
                 OnPropertyChanged(() => BgFile);
             }
-        } 
+        }
+
+        public string AlertFile
+        {
+            get
+            {
+                return string.IsNullOrEmpty(ds?.Settings?.AlertPreviewFile) ?
+                    "Wybierz plik" : ds?.Settings?.AlertPreviewFile.Split('\\')[ds.Settings.AlertPreviewFile.Count(x => x == '\\')];
+            }
+            set
+            {
+                alertFile = value;
+                OnPropertyChanged(() => AlertFile);
+            }
+        }
 
         public PreviewSettingsViewModel(DataSet ds)
         {
@@ -57,7 +79,7 @@ namespace TimerApp.ViewModel
                     previewSettingsCmd = new PreviewSettingsCmd(ds);
                 return previewSettingsCmd;
             }
-            
+
         }
 
         public GetBgImageFileCmd GetBgImageFileCmd
@@ -70,14 +92,7 @@ namespace TimerApp.ViewModel
             }
         }
 
-        public string AlertFile
-        {
-            get{return alertFile;}
-            set
-            {
-                alertFile = value;
-                OnPropertyChanged(() => AlertFile);
-            }
-        }
+
+
     }
 }

@@ -144,16 +144,16 @@
 
                 <Label  Grid.Row="0" Grid.Column="0" Content="Wczytaj tło" Margin="5,5"/>
                 <DockPanel Grid.Row="0" Grid.Column="1" >
-                    <Button  Command="{Binding Path=GetBgImageFileCmd}" Margin="5,5"
-                CommandParameter="BACKGROUND" Content="Wybierz plik"/>
+                    <Button  Command="{Binding Path=GetBgImageFileCmd}" Margin="5,5" MinWidth="150"
+                CommandParameter="BACKGROUND" Content="{Binding BgFile}"/>
                     <Button Command="{Binding Path=GetBgImageFileCmd}" Content="Wyczyść" Margin="5,5"
                 CommandParameter="CLR_BG" />
                 </DockPanel >
 
                 <Label Grid.Row="1" Grid.Column="0" Content="Wczytaj logo" Margin="5,5"/>
                 <DockPanel Grid.Row="1" Grid.Column="1">
-                    <Button  Command="{Binding Path=GetBgImageFileCmd}" Margin="5,5"
-                    CommandParameter="LOGO" Content="Wybierz plik"/>
+                    <Button  Command="{Binding Path=GetBgImageFileCmd}" Margin="5,5" MinWidth="150"
+                    CommandParameter="LOGO" Content="{Binding LogoFile}"/>
                     <Button Command="{Binding Path=GetBgImageFileCmd}" Content="Wyczyść" Margin="5,5"
                     CommandParameter="CLR_LOGO" />
                 </DockPanel>
@@ -203,8 +203,8 @@
                 <Label  Grid.Row="4" Grid.Column="0" Content="Obrazek alertu" Margin="5,5"/>
                 <DockPanel Grid.Row="4" Grid.Column="1" >
 
-                    <Button  Command="{Binding Path=GetBgImageFileCmd}" Margin="5,5"
-                CommandParameter="ALERT" Content="Wybierz plik"/>
+                    <Button  Command="{Binding Path=GetBgImageFileCmd}" Margin="5,5" MinWidth="120"
+                CommandParameter="ALERT" Content="{Binding AlertFile}"/>
                     <Button Command="{Binding Path=GetBgImageFileCmd}" Content="Wyczyść"
                 CommandParameter="CLR_ALERT" Margin="5,5"/>
                 </DockPanel>

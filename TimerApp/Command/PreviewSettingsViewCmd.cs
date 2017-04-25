@@ -45,6 +45,9 @@ namespace TimerApp.Command
                             SettingsWindow settingsWindow = new SettingsWindow();
                             settingsWindow.DataContext = ds.Mvm;
                             settingsWindow.SizeToContent = SizeToContent.WidthAndHeight;
+                            settingsWindow.Owner = Application.Current.MainWindow;
+                            settingsWindow.ShowInTaskbar = false;
+                            settingsWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                             ds.OnRequestClose += (e) =>
                             {
                                 settingsWindow.Close();
@@ -57,6 +60,9 @@ namespace TimerApp.Command
                         SettingsWindow settingsWindow = new SettingsWindow();
                         settingsWindow.DataContext = ds.Mvm;
                         settingsWindow.SizeToContent = SizeToContent.WidthAndHeight;
+                        settingsWindow.Owner = Application.Current.MainWindow;
+                        settingsWindow.ShowInTaskbar = false;
+                        settingsWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                         ds.OnRequestClose += (e) =>
                         {
                             settingsWindow.Close();

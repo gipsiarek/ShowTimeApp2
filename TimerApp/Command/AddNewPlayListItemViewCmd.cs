@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using TimerApp.Model;
 using TimerApp.Model.Abstract;
 using TimerApp.View;
@@ -39,6 +40,9 @@ namespace TimerApp.Command
                     ds.Mvm.AddTimerCtr = new AddBaseTimerViewModel(ds);
                     window.DataContext = ds.Mvm;
                     window.SizeToContent = System.Windows.SizeToContent.WidthAndHeight;
+                    window.Owner = Application.Current.MainWindow;
+                    window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                    window.ShowInTaskbar = false;
                     ds.OnRequestClose += (e) =>
                     {
                         window.Close();

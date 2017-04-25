@@ -25,7 +25,7 @@ namespace TimerApp.ViewModel
             set
             {
                 selectedTime = value;
-                if(!ds.Timer.IsRunning())
+                if (!ds.Timer.IsRunning())
                     ds.Timer.SetTimerRow(selectedTime);
                 OnPropertyChanged(() => SelectedTime);
             }
@@ -49,6 +49,8 @@ namespace TimerApp.ViewModel
         DeleteRowCmd deleteRowCmd;
         RowMovementCmd rowMovementCmd;
         UploadConfigCmd uploadConfigCmd;
+        LoadConfigCmd loadConfigCmd;
+
         public AddNewPlayListItemViewCmd AddNewPlayListItemViewCmd
         {
             get
@@ -86,7 +88,7 @@ namespace TimerApp.ViewModel
                 if (editRowCmd == null)
                     editRowCmd = new EditRowCmd(ds);
                 return editRowCmd;
-            }            
+            }
         }
         public DeleteRowCmd DeleteRowCmd
         {
@@ -115,7 +117,16 @@ namespace TimerApp.ViewModel
                 if (uploadConfigCmd == null)
                     uploadConfigCmd = new UploadConfigCmd(ds);
                 return uploadConfigCmd;
-            }            
+            }
+        }
+
+        
+        public LoadConfigCmd LoadConfigCmd
+        {
+            get { if (loadConfigCmd == null)
+                    loadConfigCmd = new LoadConfigCmd(ds);
+                return loadConfigCmd;
+            }
         }
     }
 }

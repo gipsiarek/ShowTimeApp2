@@ -43,6 +43,9 @@ namespace TimerApp.Command
                             ds.Mvm.AddTimerCtr = new AddBaseTimerViewModel(ds, bt);
                             window.DataContext = ds.Mvm;
                             window.SizeToContent = SizeToContent.WidthAndHeight;
+                            window.ShowInTaskbar = false;
+                            window.Owner = Application.Current.MainWindow;
+                            window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                             ds.OnRequestClose += (e) =>
                             {
                                 window.Close();
