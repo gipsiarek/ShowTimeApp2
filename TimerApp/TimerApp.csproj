@@ -157,6 +157,7 @@
     <Compile Include="Model\DataSet.cs" />
     <Compile Include="Model\Helper\ActionEnumConverter.cs" />
     <Compile Include="Model\Helper\Crypt.cs" />
+    <Compile Include="Model\Helper\MathConverter.cs" />
     <Compile Include="Model\Helper\MoveWindow.cs" />
     <Compile Include="Model\Helper\VerticalPosConverter.cs" />
     <Compile Include="Model\Helper\HorizontalPosConverter.cs" />

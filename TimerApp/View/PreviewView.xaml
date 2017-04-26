@@ -10,6 +10,7 @@
       >
 
     <UserControl.Resources>
+        <Converter:MathConverter x:Key="MathConverter" />
         <VisualBrush x:Key="previewBackground">
             <VisualBrush.Visual>
                 <Grid>
@@ -159,11 +160,20 @@
                         </ColumnDefinition.Width>
                     </ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Viewbox Grid.RowSpan="2" Grid.ColumnSpan="2" StretchDirection="DownOnly"> 
-                <TextBlock  x:Name="TimerDisplay"   HorizontalAlignment="Center" VerticalAlignment="Center"
-                            FontSize="{Binding Path=Ds.Settings.PreviewTimeFontSize}" 
+                <Viewbox Grid.RowSpan="2" Grid.ColumnSpan="2" StretchDirection="DownOnly">
+
+                    <TextBlock  x:Name="TimerDisplay"   HorizontalAlignment="Center" VerticalAlignment="Center"
+                            
                             Foreground="{Binding Path=PreviewTextColor }"
                             Text="{Binding Ds.Timer.TimerDisplay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                        <TextBlock.FontSize>
+                            <MultiBinding Converter="{StaticResource MathConverter}">
+                                <MultiBinding.Bindings>
+                                    <Binding ElementName="grid" Path="ActualWidth"/>
+                                    <Binding Path="Ds.Settings.PreviewTimeFontSize"/>
+                                </MultiBinding.Bindings>
+                            </MultiBinding>
+                        </TextBlock.FontSize>
                     <TextBlock.Style>
                         <Style TargetType="{x:Type TextBlock}">
                             <Style.Triggers>
@@ -185,11 +195,20 @@
                 <Viewbox Grid.Row="1" Grid.ColumnSpan="{Binding Path=Ds.Settings.ColspanForMessage}"
                          Grid.Column="{Binding Path=Ds.Settings.MessageColumn}"       
                          StretchDirection="DownOnly">
-                <TextBlock   x:Name="messageDisplay" 
+                    <TextBlock   x:Name="messageDisplay" 
                     Text="{Binding Path=Ds.MessageForPresenter, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
-                                TextWrapping="Wrap" FontSize="{Binding Path=Ds.Settings.PreviewMessageFontSize}"
+                                TextWrapping="Wrap" 
                              HorizontalAlignment="Center" VerticalAlignment="Stretch"
-                               Foreground="{Binding Path=PreviewMessageColor }"/>
+                               Foreground="{Binding Path=PreviewMessageColor }">
+                        <TextBlock.FontSize>
+                            <MultiBinding Converter="{StaticResource MathConverter}">
+                                <MultiBinding.Bindings>
+                                    <Binding ElementName="grid" Path="ActualWidth"/>
+                                    <Binding Path="Ds.Settings.PreviewMessageFontSize"/>
+                                </MultiBinding.Bindings>
+                            </MultiBinding>
+                        </TextBlock.FontSize>
+                    </TextBlock>
                 </Viewbox>
 
 

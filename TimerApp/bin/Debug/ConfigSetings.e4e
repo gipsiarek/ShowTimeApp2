@@ -45,7 +45,7 @@
       <ScB>0.7156935</ScB>
     </PreviewTextColor>
     <PreviewAlertTime>115</PreviewAlertTime>
-    <PreviewTimeFontSize>250</PreviewTimeFontSize>
+    <PreviewTimeFontSize>4</PreviewTimeFontSize>
     <PreviewAlertType>Image</PreviewAlertType>
     <PreviewLogoPosition>Right_Top</PreviewLogoPosition>
     <BackgroundPreviewFile>C:\Dev\TimerApp2\TimerApp\Image\tlo_glownego_okna_programu.png</BackgroundPreviewFile>
@@ -63,6 +63,6 @@
       <ScG>0</ScG>
       <ScB>0</ScB>
     </PreviewMessageColor>
-    <PreviewMessageFontSize>150</PreviewMessageFontSize>
+    <PreviewMessageFontSize>6</PreviewMessageFontSize>
   </Settings>
 </ConfigSettingsSerializer>
