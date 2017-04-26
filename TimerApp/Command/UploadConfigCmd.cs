@@ -35,7 +35,18 @@ namespace TimerApp.Command
             {
                 return (param) =>
                 {
-                    MessageBox.Show("Nie zaimplementowano. Brak adresów i metod");
+                    //WebClient wc = new WebClient();
+                    //Stream st = wc.OpenRead("http://185.15.44.87/jmjtest/ShowTimeAuth.zip");
+                    //StreamReader sr = new StreamReader(st);
+                    //var tmp = sr.ReadLine();
+                    ////if(x.StartsWith("DATA"))
+                    //long x = DateTime.Now.Ticks;
+                    //var xx = Convert.ToBase64String(BitConverter.GetBytes(x));
+                    Microsoft.Win32.RegistryKey key;
+                    key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("ShowTimeApp");
+                    
+                    MessageBox.Show($@"Nie zaimplementowano. adres {key.GetValue("Host")?.ToString()} 
+                                        użytkownik {key.GetValue("User")?.ToString()}");
                 };
             }
         }

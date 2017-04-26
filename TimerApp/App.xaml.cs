@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows;
+using TimerApp.Model.Helper;
 using TimerApp.View;
 using TimerApp.ViewModel;
 
@@ -20,6 +21,16 @@ namespace TimerApp
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
+            //string zakryptowany;
+            //string odkryptowany;
+            // zakryptowany = Crypt.Encrypt(File.ReadAllText("verification.txt"));
+            //File.WriteAllText("verificationCrypted.txt", zakryptowany);
+            //odkryptowany = Crypt.Decrypt(File.ReadAllText("verificationCrypted.txt"));
+
+
+
+
             MainWindow app = new MainWindow();
             MainWindowViewModel mvm = new MainWindowViewModel();
             app.DataContext = mvm;
@@ -31,8 +42,47 @@ namespace TimerApp
 
             };
             app.Show();
+            bool authorizationNeeded = false; 
 
+            Microsoft.Win32.RegistryKey key;
+            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("ShowTimeApp");
 
+            string dtString = key.GetValue("Date")?.ToString();
+            if (string.IsNullOrEmpty(dtString))
+            {
+                authorizationNeeded = true;
+                MessageBox.Show("Brak licencji. Zautoryzuj się w celu aktywacji na 2 dni.");
+            }
+            else
+            {
+                dtString = Crypt.Decrypt(dtString);
+                if (string.IsNullOrEmpty(dtString) || dtString.Length != 16)
+                {
+                    authorizationNeeded = true;
+
+                }
+                else
+                {
+                    int year = int.Parse(dtString.Substring(6, 4));
+                    int month = int.Parse(dtString.Substring(11, 2));
+                    int day = int.Parse(dtString.Substring(14, 2));
+                    DateTime dt = new DateTime(year, month, day);
+                    if (dt.AddDays(2) < DateTime.Now)
+                    {
+                        authorizationNeeded = true;
+                        MessageBox.Show("Licencja wygasła. Zautoryzuj się ponownie.");
+                    }
+                }
+            }
+            if (authorizationNeeded)
+            {
+                Login settingsWindow = new Login();
+                settingsWindow.SizeToContent = SizeToContent.WidthAndHeight;
+                settingsWindow.Owner = Application.Current.MainWindow;
+                settingsWindow.ShowInTaskbar = false;
+                settingsWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                settingsWindow.ShowDialog();
+            }
             //WebClient wc = new WebClient();
             //Stream st = wc.OpenRead("http://185.15.44.87/jmjtest/ShowTimeAuth.zip");
             //StreamReader sr = new StreamReader(st);
