@@ -10,11 +10,11 @@ none
 false
 TRACE
 C:\Dev\TimerApp2\TimerApp\App.xaml
-9-1978244704
+10588549548
 
-55744171375
+57-1987655047
 17-270706714
-MainWindow.xaml;View\AddBaseTimerView.xaml;View\AddTimerWindow.xaml;View\MessageSenderView.xaml;View\PlayListView.xaml;View\PresenterWindow.xaml;View\PreviewSettingsView.xaml;View\PreviewView.xaml;View\SettingsWindow.xaml;
+MainWindow.xaml;View\AddBaseTimerView.xaml;View\AddTimerWindow.xaml;View\Login.xaml;View\MessageSenderView.xaml;View\PlayListView.xaml;View\PresenterWindow.xaml;View\PreviewSettingsView.xaml;View\PreviewView.xaml;View\SettingsWindow.xaml;
 
 True
 

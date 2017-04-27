@@ -9,7 +9,7 @@
         xmlns:views="clr-namespace:TimerApp.View"
         WindowStyle="ToolWindow" Height="600"
         BorderBrush="Transparent" BorderThickness="0" 
-        Title="SettingsWindow" Background="Transparent"  >
+        Title="Ustawienia" Background="Transparent"  >
     <Window.Resources>
         <DataTemplate DataType="{x:Type vm:PlayListViewModel}">
             <views:PlayListView/>

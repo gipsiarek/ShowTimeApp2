@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TimerApp.View"
              mc:Ignorable="d"
-             Width="400" Height="400">
+             Width="500" Height="400">
     <Grid >
         <Grid.Background>
             <ImageBrush ImageSource="/TimerApp;component/Image/tlo_ustawien_dodawaniaczasu_instalatora.png"/>
@@ -14,7 +14,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Image Margin="10,10,0,0" Grid.Row="0" Source="/TimerApp;component/Image/logo_z_napisem_na_dole.png" HorizontalAlignment="Left" Width="200" Height="100"/>
+        <Image Margin="10,10,0,0" Grid.Row="0"  Source="/TimerApp;component/Image/logo_z_napisem_na_dole.png" HorizontalAlignment="Left" Width="200" Height="113"/>
         <Grid  Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,5">
             <Grid.Resources>
                 <Style TargetType="TextBox">
@@ -59,7 +59,7 @@
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="Nazwa"/>
             <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding NewBt.Name}" MinWidth="150" Margin="5,5"/>
-            <Label Grid.Row="1" Grid.Column="0" Content="Czas [HH:MM:ss]"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Czas [h:m:s]"/>
             <!--<TextBox Grid.Row="1" Grid.Column="1" Text="{Binding NewBt.Duration}" MinWidth="100" Margin="5,5"/>-->
             <DockPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"  Margin="5,5">
                 <TextBox x:Name="Hours" Text="{Binding Path=DurationHours}" MinWidth="48" />

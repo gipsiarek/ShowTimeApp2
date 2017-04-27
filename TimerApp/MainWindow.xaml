@@ -75,7 +75,7 @@
                         Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="150"  FontSize="18"
                         Command="{Binding PreviewSettingsViewCmd}">
                         <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="110">
-                            <TextBlock Text="+" HorizontalAlignment="Left"/>
+                            <Image Source="/TimerApp;component/Image/ikona_ustawienia.png"/>
                             <TextBlock Text="Ustawienia" HorizontalAlignment="Right"/>
                         </DockPanel>
                     </Button>

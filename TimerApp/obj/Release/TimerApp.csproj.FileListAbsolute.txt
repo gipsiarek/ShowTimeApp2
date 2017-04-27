@@ -5,7 +5,6 @@ C:\Dev\TimerApp2\TimerApp\bin\Release\TimerApp.exe
 C:\Dev\TimerApp2\TimerApp\bin\Release\TimerApp.pdb
 C:\Dev\TimerApp2\TimerApp\bin\Release\InstallManager.dll
 C:\Dev\TimerApp2\TimerApp\bin\Release\Xceed.Wpf.Toolkit.dll
-C:\Dev\TimerApp2\TimerApp\obj\Release\TimerApp.csprojResolveAssemblyReference.cache
 C:\Dev\TimerApp2\TimerApp\obj\Release\MainWindow.g.cs
 C:\Dev\TimerApp2\TimerApp\obj\Release\View\AddBaseTimerView.g.cs
 C:\Dev\TimerApp2\TimerApp\obj\Release\View\AddTimerWindow.g.cs
@@ -36,3 +35,5 @@ C:\Dev\TimerApp2\TimerApp\obj\Release\TimerApp.exe.manifest
 C:\Dev\TimerApp2\TimerApp\obj\Release\TimerApp.application
 C:\Dev\TimerApp2\TimerApp\obj\Release\TimerApp.exe
 C:\Dev\TimerApp2\TimerApp\obj\Release\TimerApp.pdb
+C:\Dev\TimerApp2\TimerApp\obj\Release\View\Login.g.cs
+C:\Dev\TimerApp2\TimerApp\obj\Release\View\Login.baml

@@ -8,7 +8,7 @@
         xmlns:views="clr-namespace:TimerApp.View"
         mc:Ignorable="d"        WindowStyle="ToolWindow" 
         BorderBrush="Transparent" BorderThickness="0" 
-        Title="AddTimerWindow">
+        Title="Dodaj czas">
     <Window.Resources>
         <DataTemplate DataType="{x:Type vm:PlayListViewModel}">
             <views:PlayListView/>

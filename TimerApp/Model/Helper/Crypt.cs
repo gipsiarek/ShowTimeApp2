@@ -34,7 +34,7 @@ namespace TimerApp.Model.Helper
 //BJSuayKQYHoix0mP+wIDAQAB
 //-----END PUBLIC KEY-----
         private static string _publicKey= "<RSAKeyValue><Modulus>sNisqUkE3886qJOtgTISrIYbd3C+OH0ohU/H59kIEguyAmwje99430InIkobOgzdupZREfV7ht6AMe2lMrdYk1pabmiNuQkLLT34Ls0cIb15NLegBOhvzHDh7RI2nK7HykwEnbxa1xTxUEvqaWgH9sO3sgSUrmsikGB6IsdJj/s=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>";
-        private static UnicodeEncoding _encoder = new UnicodeEncoding();
+        private static UTF8Encoding _encoder = new UTF8Encoding();
 
         public static string Decrypt(string data)
         {
@@ -54,7 +54,7 @@ namespace TimerApp.Model.Helper
         public static string Encrypt(string data)
         {
             var rsa = new RSACryptoServiceProvider();
-            rsa.FromXmlString(_publicKey);
+            rsa.FromXmlString(_privateKey);
             var dataToEncrypt = _encoder.GetBytes(data);
             var encryptedByteArray = rsa.Encrypt(dataToEncrypt, false).ToArray();
             var length = encryptedByteArray.Count();
@@ -71,5 +71,7 @@ namespace TimerApp.Model.Helper
 
             return sb.ToString();
         }
+
+
     }
 }

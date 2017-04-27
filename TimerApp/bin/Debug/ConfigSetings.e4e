@@ -48,8 +48,8 @@
     <PreviewTimeFontSize>4</PreviewTimeFontSize>
     <PreviewAlertType>Image</PreviewAlertType>
     <PreviewLogoPosition>Right_Top</PreviewLogoPosition>
-    <BackgroundPreviewFile>C:\Dev\TimerApp2\TimerApp\Image\tlo_glownego_okna_programu.png</BackgroundPreviewFile>
-    <LogoPreviewFile>C:\Dev\TimerApp2\TimerApp\Image\tlo_glownego_okna_programu.png</LogoPreviewFile>
+    <BackgroundPreviewFile>C:\Dev\TimerApp2\TimerApp\Image\edit.png</BackgroundPreviewFile>
+    <LogoPreviewFile>C:\Dev\TimerApp2\TimerApp\Image\down.png</LogoPreviewFile>
     <LogoHeight>30</LogoHeight>
     <LogoWidth>30</LogoWidth>
     <AlertPreviewFile>C:\Users\gipsiarek\Pictures\100ANDRO\DSC_0012.JPG</AlertPreviewFile>

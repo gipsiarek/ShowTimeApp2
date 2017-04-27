@@ -32,7 +32,7 @@
             <!--Background="#FF58F358"-->
             <!--<Label Content="LISTA CZASÓW" HorizontalAlignment="Left" FontSize="20" Foreground="White" VerticalAlignment="Center"/>-->
             <Button HorizontalAlignment="Right" Foreground="White" VerticalAlignment="Center" DockPanel.Dock="Right"
-                        Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="200"  FontSize="18"
+                        Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="150"  FontSize="18"
                         Command="{Binding AddNewPlayListItemViewCmd}" Background="Transparent">
                 <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="110">
                     <TextBlock Text="+" HorizontalAlignment="Left"/>
@@ -40,12 +40,12 @@
                 </DockPanel>
             </Button>
             <Button HorizontalAlignment="Right"  Foreground="White" VerticalAlignment="Center" DockPanel.Dock="Right"
-                        Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="170" Height="28" FontSize="16"
+                        Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="150" Height="28" FontSize="18"
                         Command="{Binding UploadConfigCmd}" Background="Transparent">
-                    <TextBlock Text="Synchronizuj ustawienia" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Synchronizuj" HorizontalAlignment="Center"/>
             </Button>
             <Button HorizontalAlignment="Right"  Foreground="White" VerticalAlignment="Center" DockPanel.Dock="Right"
-                        Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="110"  FontSize="18"
+                        Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="150"  FontSize="18"
                         Command="{Binding LoadConfigCmd}" Background="Transparent">
                 <TextBlock Text="Wczytaj plik" HorizontalAlignment="Center"/>
             </Button>
