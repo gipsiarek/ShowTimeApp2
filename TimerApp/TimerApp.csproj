@@ -79,6 +79,9 @@
     <AssemblyOriginatorKeyFile>ShowTimeAppCertificate.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>.\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="InstallManager, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\InstallManager.1.1.0\lib\net40\InstallManager.dll</HintPath>
       <Private>True</Private>

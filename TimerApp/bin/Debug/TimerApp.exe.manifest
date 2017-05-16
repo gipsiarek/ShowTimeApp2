@@ -43,6 +43,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BouncyCastle.Crypto.dll" size="2236416">
+      <assemblyIdentity name="BouncyCastle.Crypto" version="1.8.1.0" publicKeyToken="0E99375E54769942" language="neutral" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>GYW4W7RL5sbq814C7xHiOokOgJuOwuUyEKStWoWybHA=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="InstallManager.dll" size="40960">
       <assemblyIdentity name="InstallManager" version="1.1.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -55,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TimerApp.exe" size="2082816">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TimerApp.exe" size="2081280">
       <assemblyIdentity name="TimerApp" version="1.0.0.0" publicKeyToken="574994EC10980F1A" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3c/sK9xMIFVPG0+T5PZUpv1BaKU/D+6EmnXR2mreTEs=</dsig:DigestValue>
+        <dsig:DigestValue>vtJGeEjent88+x4KQ3k9CoiHZVZ7Lm7MUf/uKzNX6WA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
