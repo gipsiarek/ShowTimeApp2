@@ -52,7 +52,7 @@ namespace TimerApp.Command
                         new KeyValuePair<string, string>("username", key.GetValue("User").ToString()),
                         new KeyValuePair<string, string>("password", key.GetValue("Pass").ToString()), 
                         new KeyValuePair<string, string>("name", ds.Css.FileName),
-                        new KeyValuePair<string, string>("content", ds.Css.FileName),                    
+                        new KeyValuePair<string, string>("content", ds.Css.GetXmlConfig()),                    
                     };
 
                     var content = new FormUrlEncodedContent(pairs);
