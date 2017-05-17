@@ -15,7 +15,7 @@ namespace TimerApp.Model
         ObservableCollection<TimerRow> playlist;
         SettingsClass settings;
         string fileName;
-
+        public string FileName => fileName;
         public ConfigSettingsSerializer()
         {         
             this.settings = new SettingsClass();

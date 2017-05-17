@@ -56,7 +56,7 @@ namespace TimerApp
             else
             {
                 //dtString = Crypt.Decrypt(dtString);                
-                if (string.IsNullOrEmpty(dtString) || dtString.Length != 16)
+                if (string.IsNullOrEmpty(dtString) || dtString.Length != 25)
                 {
                     authorizationNeeded = true;
 
