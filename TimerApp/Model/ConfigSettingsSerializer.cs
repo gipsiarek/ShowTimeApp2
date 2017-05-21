@@ -93,6 +93,7 @@ namespace TimerApp.Model
         public string GetXmlConfig()
         {
             string result = File.ReadAllText(fileName);
+
             return result;
         }
     }

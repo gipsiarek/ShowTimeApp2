@@ -13,7 +13,7 @@ namespace TimerApp.Model.Helper
     {
         public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-               return ((double)values[0] /2 / (int)values[1]);
+               return ((double)values[0] /2 / (11-(int)values[1]));
         }
 
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, System.Globalization.CultureInfo culture)

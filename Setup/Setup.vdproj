@@ -39,6 +39,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_624097BB32B0DB72E2538BA141372F9A"
+        "OwnerKey" = "8:_5AC39EF56D3D4C96A027F2C39FED0A42"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_6AE57F5001053DB8FB3A875295158F85"
         "OwnerKey" = "8:_5AC39EF56D3D4C96A027F2C39FED0A42"
         "MsmSig" = "8:_UNDEFINED"
@@ -70,6 +76,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_624097BB32B0DB72E2538BA141372F9A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_1E9A2B849154FD1DCE2045ECF69FD99F"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -87,7 +99,7 @@
         "DisplayName" = "8:Debug"
         "IsDebugOnly" = "11:TRUE"
         "IsReleaseOnly" = "11:FALSE"
-        "OutputFilename" = "8:Debug\\Setup.msi"
+        "OutputFilename" = "8:Debug\\ShowTime.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -119,7 +131,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\Setup.msi"
+        "OutputFilename" = "8:Release\\ShowTime.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -256,6 +268,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_624097BB32B0DB72E2538BA141372F9A"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942"
+                "ScatterAssemblies"
+                {
+                    "_624097BB32B0DB72E2538BA141372F9A"
+                    {
+                    "Name" = "8:BouncyCastle.Crypto.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:BouncyCastle.Crypto.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_BEF9CA994DB245139E3D5A05E4FE7ACC"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6AE57F5001053DB8FB3A875295158F85"
             {
             "AssemblyRegister" = "3:1"
@@ -369,7 +412,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_BEF9CA994DB245139E3D5A05E4FE7ACC"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][ProductName]"
+            "DefaultLocation" = "8:[ProgramFilesFolder]\\NewSystems\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -418,7 +461,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:ShowTimeApp"
         "ProductCode" = "8:{8E364E78-6286-4A29-94C6-C03F676D5C32}"
-        "PackageCode" = "8:{EF12DD94-F050-42E4-A1EA-9B40AB17CBC3}"
+        "PackageCode" = "8:{B4B38EFD-656A-441C-BDB5-A5391C779263}"
         "UpgradeCode" = "8:{AB70C535-3DE3-4AFB-A794-7568F7B5A2F9}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

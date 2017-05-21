@@ -7,14 +7,14 @@
     <framework targetVersion="4.6.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="TimerApp.exe.manifest" size="5352">
+    <dependentAssembly dependencyType="install" codebase="TimerApp.exe.manifest" size="6015">
       <assemblyIdentity name="TimerApp.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>P+HzPQ7mNlUhpPLSdFzh0yPY2z67iMlkTZloobS6WBI=</dsig:DigestValue>
+        <dsig:DigestValue>ZxdyVE9LQXtpZUUKjZWAEaTb7sO5fY8ZQajOfW7Tdig=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>O0FpYw61vw/9PtpMBelOvmgOTZiCWWxTqmNj0bOje4I=</dsig:DigestValue>
+        <dsig:DigestValue>gzKl3TjPcj9IED/O+rWiukPm7OYdMv372pgG0Mvzmwc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -99,13 +99,13 @@
       <dsig:DigestValue>ivPNQej4SLsrAM8xDEENVOi/KBmSS4Pcoq/oug1/Tz4=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="TimerApp.exe.config" size="2475">
+  <file name="TimerApp.exe.config" size="2473">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>C4Lkv9b+0sr6LRmoNa0RyYBvQCvFERtAWYFCILEBfzQ=</dsig:DigestValue>
+      <dsig:DigestValue>n8ZHBxn9PA9BE+nMYDGmiKEgKROC04pQmBbmyf8PjhI=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
