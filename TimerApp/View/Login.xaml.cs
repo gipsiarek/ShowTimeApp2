@@ -22,7 +22,7 @@ namespace TimerApp.View
             InitializeComponent();
             Microsoft.Win32.RegistryKey key;
             key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("ShowTimeApp");
-            txbHost.Text = key.GetValue("Host")?.ToString();
+            txbHost.Text = key.GetValue("Host")?.ToString() ;
             txbName.Text = key.GetValue("User")?.ToString();          
         }
 
@@ -31,7 +31,7 @@ namespace TimerApp.View
             Microsoft.Win32.RegistryKey key;
             key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("ShowTimeApp");
             key.SetValue("User", txbName.Text );
-            key.SetValue("Host", txbHost.Text);
+            key.SetValue("Host", txbHost.Text );
             //key.SetValue("Pass", Crypt.Encrypt(txbPassword.Password));
             key.SetValue("Pass", txbPassword.Password);
             key.Close();
@@ -85,7 +85,7 @@ namespace TimerApp.View
             var content = new FormUrlEncodedContent(pairs);
             msg = null;
             string data="";
-            var response = client.PostAsync(url, content).Result;
+            var response = client.PostAsync(url + "/admin/timer/timer", content).Result;
             if (response.IsSuccessStatusCode )
             {
                 var stringMsg= response.Content.ReadAsStringAsync().Result.Split(',');

@@ -181,6 +181,9 @@
     <Compile Include="View\AddTimerWindow.xaml.cs">
       <DependentUpon>AddTimerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\FileNameWindow.xaml.cs">
+      <DependentUpon>FileNameWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -219,6 +222,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddTimerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FileNameWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

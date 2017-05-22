@@ -1,0 +1,64 @@
+﻿<Window x:Class="TimerApp.View.FileNameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TimerApp.View"
+        mc:Ignorable="d" WindowStyle="ToolWindow" 
+        BorderBrush="Transparent" BorderThickness="0" 
+        Title="Nazwa pliku do wgrania" Height="300" Width="400">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/TimerApp;component/Image/tlo_ustawien_dodawaniaczasu_instalatora.png"/>
+        </Grid.Background>
+        <Grid  Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,5">
+            <Grid.Resources>
+                <Style TargetType="PasswordBox">
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Nazwa pliku"/>
+            <TextBox x:Name="txbConfigName" Grid.Row="0" Grid.Column="1" MinWidth="150" Margin="5,5" ToolTip="Podaj nazwę pliku która zapisze się na serwerze."/>
+
+            <Button x:Name="BtnSave" Grid.Row="5" Grid.Column="0" Content="Zapisz" Click="BtnSave_Click" Margin="5,5"/>
+            <Button x:Name="BtnCancel" Grid.Row="5" Grid.Column="1" Content="Anuluj" Click="BtnCancel_Click" Margin="5,5"/>
+        </Grid>
+
+
+    </Grid>
+</Window>

@@ -41,7 +41,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Image Margin="10,10,0,0" Grid.Row="0" Source="Image/logo_z_napisem_z_boku.png" HorizontalAlignment="Left" Width="200" Height="50"/>
-
+        
         <Grid Grid.Row="1" Margin="10,0,10,45">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.6*"/>
@@ -101,6 +101,10 @@
 
 
         </Grid>
-
+        <TextBlock Grid.Row="1" FontSize="16" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10">           
+            <Hyperlink NavigateUri="http://www.newsystems.pl" RequestNavigate="Hyperlink_RequestNavigate">
+                www.newsystems.pl
+            </Hyperlink>
+        </TextBlock>
     </Grid>
 </Window>
