@@ -38,6 +38,5 @@ C:\Dev\TimerApp2\TimerApp\obj\Release\TimerApp.pdb
 C:\Dev\TimerApp2\TimerApp\obj\Release\View\Login.g.cs
 C:\Dev\TimerApp2\TimerApp\obj\Release\View\Login.baml
 C:\Dev\TimerApp2\TimerApp\bin\Release\BouncyCastle.Crypto.dll
-C:\Dev\TimerApp2\TimerApp\obj\Release\TimerApp.csprojResolveAssemblyReference.cache
 C:\Dev\TimerApp2\TimerApp\obj\Release\View\FileNameWindow.g.cs
 C:\Dev\TimerApp2\TimerApp\obj\Release\View\FileNameWindow.baml
