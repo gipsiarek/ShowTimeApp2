@@ -27,25 +27,26 @@
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0" HorizontalAlignment="Stretch"   Opacity="1" OpacityMask="#FF5DF03C">
             <DockPanel.Background>
-                <ImageBrush ImageSource="/TimerApp;component/Image/pasek_lista_czasow.png"/>
+                <ImageBrush ImageSource="/TimerApp;component/Image/pasek_lista_czasow1.png"/>
             </DockPanel.Background>
             <!--Background="#FF58F358"-->
             <!--<Label Content="LISTA CZASÓW" HorizontalAlignment="Left" FontSize="20" Foreground="White" VerticalAlignment="Center"/>-->
+            <TextBlock Text="LISTA CZASÓW" Foreground="white" Margin="5,0,0,0" FontSize="18" HorizontalAlignment="Left"/>
             <Button HorizontalAlignment="Right" Foreground="White" VerticalAlignment="Center" DockPanel.Dock="Right"
-                        Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="150"  FontSize="18"
+                        Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="120"  FontSize="18"
                         Command="{Binding AddNewPlayListItemViewCmd}" Background="Transparent">
-                <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="110">
+                <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="100">
                     <TextBlock Text="+" HorizontalAlignment="Left"/>
                     <TextBlock Text="Dodaj czas" HorizontalAlignment="Right"/>
                 </DockPanel>
             </Button>
             <Button HorizontalAlignment="Right"  Foreground="White" VerticalAlignment="Center" DockPanel.Dock="Right"
-                        Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="150" Height="28" FontSize="18"
+                        Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="120" Height="28" FontSize="18"
                         Command="{Binding UploadConfigCmd}" Background="Transparent">
                     <TextBlock Text="Synchronizuj" HorizontalAlignment="Center"/>
             </Button>
             <Button HorizontalAlignment="Right"  Foreground="White" VerticalAlignment="Center" DockPanel.Dock="Right"
-                        Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="150"  FontSize="18"
+                        Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="120"  FontSize="18"
                         Command="{Binding LoadConfigCmd}" Background="Transparent">
                 <TextBlock Text="Wczytaj plik" HorizontalAlignment="Center"/>
             </Button>

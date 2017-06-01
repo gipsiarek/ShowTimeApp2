@@ -332,6 +332,11 @@
   <ItemGroup>
     <Resource Include="ShowTimeApp1.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\pasek_lista_czasow1.png" />
+    <Resource Include="Image\pasek_podglad1.png" />
+    <Resource Include="Image\pasek_wiadomosc1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
