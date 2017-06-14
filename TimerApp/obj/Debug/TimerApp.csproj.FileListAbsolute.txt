@@ -40,3 +40,4 @@ C:\Dev\TimerApp2\TimerApp\obj\Debug\View\Login.baml
 C:\Dev\TimerApp2\TimerApp\bin\Debug\BouncyCastle.Crypto.dll
 C:\Dev\TimerApp2\TimerApp\obj\Debug\View\FileNameWindow.g.cs
 C:\Dev\TimerApp2\TimerApp\obj\Debug\View\FileNameWindow.baml
+C:\Dev\TimerApp2\TimerApp\obj\Debug\TimerApp.csprojResolveAssemblyReference.cache

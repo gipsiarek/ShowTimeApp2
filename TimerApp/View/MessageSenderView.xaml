@@ -17,7 +17,7 @@
                 <DockPanel.Background>
                     <ImageBrush ImageSource="/TimerApp;component/Image/pasek_wiadomosc1.png"/>
                 </DockPanel.Background>
-                <TextBlock Text="WIADOMOŚĆ" DockPanel.Dock="Left" Margin="5,0,0,0" Foreground="White" FontSize="18"/>
+                <TextBlock Text="WIADOMOŚĆ" DockPanel.Dock="Left" Margin="15,0,0,0" Foreground="White" FontSize="18"/>
                 <Button HorizontalAlignment="Right" Background="Transparent" Foreground="White" DockPanel.Dock="Right"
                         Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="120"  FontSize="18"
                         Command="{Binding SendMessageCmd}" CommandParameter=" ">

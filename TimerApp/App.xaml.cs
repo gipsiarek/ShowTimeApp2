@@ -81,7 +81,17 @@ namespace TimerApp
                 settingsWindow.Owner = Application.Current.MainWindow;
                 settingsWindow.ShowInTaskbar = false;
                 settingsWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-                settingsWindow.ShowDialog();
+                //TODO dialog result i pętelka przy błędzie + obsługa błędu
+                bool? result = settingsWindow.ShowDialog();
+                while (result != true)
+                {
+                    settingsWindow = new Login();
+                    settingsWindow.SizeToContent = SizeToContent.WidthAndHeight;
+                    settingsWindow.Owner = Application.Current.MainWindow;
+                    settingsWindow.ShowInTaskbar = false;
+                    settingsWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                    result = settingsWindow.ShowDialog();
+                }
             }
             //WebClient wc = new WebClient();
             //Stream st = wc.OpenRead("http://185.15.44.87/jmjtest/ShowTimeAuth.zip");

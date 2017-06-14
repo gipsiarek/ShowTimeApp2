@@ -71,7 +71,7 @@
                         
                         <ImageBrush ImageSource="Image/pasek_podglad1.png" />
                     </DockPanel.Background>
-                    <TextBlock Text="PODGLĄD" Foreground="White" Margin="5,0,0,0" FontSize="18"/>
+                    <TextBlock Text="PODGLĄD" Foreground="White" Margin="15,0,0,0" FontSize="18"/>
                     <Button HorizontalAlignment="Right" Background="Transparent" Foreground="White" DockPanel.Dock="Right"
                         Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="150"  FontSize="18"
                         Command="{Binding PreviewSettingsViewCmd}">

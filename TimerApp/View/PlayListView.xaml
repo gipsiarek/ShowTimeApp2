@@ -31,7 +31,7 @@
             </DockPanel.Background>
             <!--Background="#FF58F358"-->
             <!--<Label Content="LISTA CZASÓW" HorizontalAlignment="Left" FontSize="20" Foreground="White" VerticalAlignment="Center"/>-->
-            <TextBlock Text="LISTA CZASÓW" Foreground="white" Margin="5,0,0,0" FontSize="18" HorizontalAlignment="Left"/>
+            <TextBlock Text="LISTA CZASÓW" Foreground="white" Margin="15,0,0,0" FontSize="18" HorizontalAlignment="Left"/>
             <Button HorizontalAlignment="Right" Foreground="White" VerticalAlignment="Center" DockPanel.Dock="Right"
                         Margin="0,2,10,2" BorderThickness="1" BorderBrush="White" Width="120"  FontSize="18"
                         Command="{Binding AddNewPlayListItemViewCmd}" Background="Transparent">
